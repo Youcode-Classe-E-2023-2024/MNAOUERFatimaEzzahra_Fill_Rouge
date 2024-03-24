@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleDetailController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
@@ -35,4 +36,8 @@ Route::post('/forgot-password/reset', [ForgotPasswordController::class, 'update'
 Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
 
 Route::get('/articleDetail', [ArticleDetailController::class, 'create'])->name('Detail.article');
+
+Route::get('/favorite', [ArticleDetailController::class, 'index'])->name('favorite.article');
+
+Route::get('/createArticle', [ArticleController::class, 'create'])->name('create.article');
 

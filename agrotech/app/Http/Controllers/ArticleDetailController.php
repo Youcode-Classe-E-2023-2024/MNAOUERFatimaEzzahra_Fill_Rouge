@@ -10,4 +10,9 @@ class ArticleDetailController extends Controller
     {
         return view('articleDetail');
     }
+
+    public function index()
+    {
+        return view('favorite');
+    }
 }

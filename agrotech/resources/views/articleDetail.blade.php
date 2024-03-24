@@ -61,7 +61,7 @@
                         </button>
                     </div>
                 </div>
-                <a href="" class="nav-item nav-link">Create Article</a>
+                <a href="{{route('create.article')}}" class="nav-item nav-link">Create Article</a>
                 <a href="{{route('login')}}" class="nav-item nav-link">Sign in</a>
             </div>
     </div>
@@ -216,8 +216,8 @@
                         <h4 class="mb-5 fw-bold">Laisser une réponse</h4>
                         <div class="row g-4">
                             <div class="col-lg-6">
-                                <button type="button" class="btn btn-info">Like</button>
-                                <button type="button" class="btn btn-danger">Dislike</button>
+                                <a href="{{route('favorite.article')}}" type="submit" class="btn btn-info">Like</a>
+                                <a type="button" class="btn btn-danger">Dislike</a>
                             </div>
                             <div class="col-lg-12">
                                 <div class="border-bottom rounded my-4">
