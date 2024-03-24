@@ -61,7 +61,7 @@
                         </button>
                     </div>
                 </div>
-                <a href="" class="nav-item nav-link">Create Article</a>
+                <a href="{{route('create.article')}}" class="nav-item nav-link">Create Article</a>
                 <a href="{{route('login')}}" class="nav-item nav-link">Sign in</a>
             </div>
     </div>
