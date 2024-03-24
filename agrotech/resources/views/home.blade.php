@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <a href="" class="nav-item nav-link">Create Article</a>
-                <a href="" class="nav-item nav-link">Sign in</a>
+                <a href="{{route('login')}}" class="nav-item nav-link">Sign in</a>
             </div>
     </div>
     </nav>
@@ -137,7 +137,7 @@
                         </div>
                         <div class="carousel-item rounded">
                             <img src="img/plante.jpg" class="img-fluid w-100 h-100 rounded" alt="Second slide">
-                            <a href="#" class="btn px-4 py-2 text-white rounded">Fértilisation</a>
+                            <a href="#" class="btn px-4 py-2 text-white rounded">Fertilisation</a>
                         </div>
                         <div class="carousel-item rounded">
                             <img src="img/cereal.jpg" class="img-fluid w-100 h-400 rounded" alt="Second slide">
@@ -192,7 +192,7 @@
                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te
                                                 incididunt</p>
                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"> Voir Plus</a>
+                                                <a href="{{route('Detail.article')}}" class="btn border border-secondary rounded-pill px-3 text-primary"> Voir Plus</a>
                                             </div>
                                         </div>
                                     </div>
