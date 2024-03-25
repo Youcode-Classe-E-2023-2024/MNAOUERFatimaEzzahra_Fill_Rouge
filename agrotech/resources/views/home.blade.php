@@ -53,10 +53,9 @@
             <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
                     <div class="position-relative mx-auto">
-                        <input class="form-control border-2 border-secondary w-100 py-3 px-4 rounded-pill" type="search"
-                               placeholder="Search">
+                        <input class="form-control border-2 border-secondary w-100 py-1 px-3 rounded-pill" type="search" placeholder="Search">
                         <button type="submit"
-                                class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100"
+                                class="btn btn-primary border-2 border-secondary py-1 px-4 position-absolute rounded-pill text-white h-100"
                                 style="top: 0; right: 0%;"><i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -69,7 +68,7 @@
 
     <!-- categories -->
     <div class="col-lg-12">
-        <ul class="nav nav-pills d-inline-flex text-center mb-5">
+        <ul class="nav nav-pills d-inline-flex text-center mb-2">
             <li class="nav-item">
                 <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
                     <span class="text-dark" style="width: 130px;">All Article</span>
@@ -187,7 +186,7 @@
                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                              style="top: 10px; left: 10px;">Fruits
                                         </div>
-                                        <div class="p-4 border-black border-top-0 rounded-bottom">
+                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                             <h4>Grapes</h4>
                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te
                                                 incididunt</p>
