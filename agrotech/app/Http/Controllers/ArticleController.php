@@ -10,4 +10,10 @@ class ArticleController extends Controller
     {
         return view('createArticle');
     }
+
+//    article backoffice
+    public function index()
+    {
+        return view('Backoffice.article');
+    }
 }
