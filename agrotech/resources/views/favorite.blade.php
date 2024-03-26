@@ -53,10 +53,10 @@
             <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
                     <div class="position-relative mx-auto">
-                        <input class="form-control border-2 border-secondary w-100 py-3 px-4 rounded-pill" type="search"
+                        <input class="form-control border-2 border-secondary w-100 py-1 px-3 rounded-pill" type="search"
                                placeholder="Search">
                         <button type="submit"
-                                class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100"
+                                class="btn btn-primary border-2 border-secondary py-1 px-4 position-absolute rounded-pill text-white h-100"
                                 style="top: 0; right: 0%;"><i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -64,6 +64,7 @@
                 <a href="{{route('create.article')}}" class="nav-item nav-link">Create Article</a>
                 <a href="{{route('login')}}" class="nav-item nav-link">Sign in</a>
             </div>
+        </nav>
     </div>
     </nav>
 
