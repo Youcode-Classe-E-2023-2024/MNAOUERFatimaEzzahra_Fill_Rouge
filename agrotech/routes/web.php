@@ -3,9 +3,13 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleDetailController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,4 +44,14 @@ Route::get('/articleDetail', [ArticleDetailController::class, 'create'])->name('
 Route::get('/favorite', [ArticleDetailController::class, 'index'])->name('favorite.article');
 
 Route::get('/createArticle', [ArticleController::class, 'create'])->name('create.article');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('/profile', [ProfilController::class, 'index'])->name('profile');
+
+Route::get('/category', [CategoryController::class, 'index'])->name('category');
+
+Route::get('/tag', [TagController::class, 'index'])->name('Tag');
+
+Route::get('/Article', [ArticleController::class, 'index'])->name('admin.article');
 
