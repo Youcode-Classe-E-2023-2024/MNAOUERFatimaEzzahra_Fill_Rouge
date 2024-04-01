@@ -30,7 +30,7 @@ class RegisterController extends Controller
         ]);
 
         // Adding permissions via a role
-        $user->assignRole('user');
+//        $user->assignRole('user');
 
         return redirect('login');
     }
