@@ -72,7 +72,7 @@
             <a class="nav-link" href="{{ route('category') }}"><i class="fa-solid fa-list"></i><span>Category</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('Tag') }}"><i class="fa-solid fa-tag"></i><span>Tag</span></a>
+            <a class="nav-link" href="{{ route('tag') }}"><i class="fa-solid fa-tag"></i><span>Tag</span></a>
         </li>
 
         <li class="nav-item">
