@@ -73,48 +73,6 @@
                 <a class="d-flex justify-content-center align-items-center m-2 py-2 bg-light rounded-pill active text-dark" data-bs-toggle="pill" href="#tab-1" style="width: 130px;" href="">{{ $cat->name }}</a>
             @endforeach
         </nav>
-{{--        <ul class="nav nav-pills d-inline-flex text-center mb-2">--}}
-{{--            <li class="nav-item">--}}
-{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">--}}
-{{--                    <span class="text-dark" style="width: 130px;">All Article</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item">--}}
-{{--                <a class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">--}}
-{{--                    <span class="text-dark" style="width: 130px;">Cultive</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item">--}}
-{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">--}}
-{{--                    <span class="text-dark" style="width: 130px;">Météo</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item">--}}
-{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-4">--}}
-{{--                    <span class="text-dark" style="width: 130px;">Maladie</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item">--}}
-{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">--}}
-{{--                    <span class="text-dark" style="width: 130px;">Fértilisation</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item">--}}
-{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">--}}
-{{--                    <span class="text-dark" style="width: 130px;">Irrigation</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item">--}}
-{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">--}}
-{{--                    <span class="text-dark" style="width: 130px;">Matériel</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item">--}}
-{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">--}}
-{{--                    <span class="text-dark" style="width: 130px;">Arbre</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-{{--        </ul>--}}
     </div>
     <!-- end categories -->
 
@@ -929,7 +887,7 @@
 
 <!-- Footer Start -->
 <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
-    <div class="container py-5">
+    <div class="container py-0">
         <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
             <div class="row g-4">
                 <div class="col-lg-3">
@@ -937,16 +895,19 @@
                         <h1 class="text-primary mb-0">AgroTech</h1>
                     </a>
                 </div>
-                <div class="col-lg-6">
-                    <div class="position-relative mx-auto">
-                        <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number"
-                               placeholder="Your Email">
-                        <button type="submit"
-                                class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white"
-                                style="top: 0; right: 0;">Subscribe Now
-                        </button>
+                <form method="POST" action="{{ route('add_subscriber') }}">
+                    @csrf
+                    <div class="col-lg-6">
+                        <div class="position-relative mx-auto">
+                            <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="email"
+                                  name="email" placeholder="Your Email">
+                            <button type="submit"
+                                    class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white"
+                                    style="top: 0; right: 0;">Subscribe Now
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </form>
                 <div class="col-lg-3">
                     <div class="d-flex justify-content-end pt-3">
                         <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i
