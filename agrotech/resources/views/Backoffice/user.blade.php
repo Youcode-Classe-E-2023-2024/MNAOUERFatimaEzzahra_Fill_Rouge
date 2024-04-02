@@ -26,27 +26,27 @@
         </thead>
         <tbody>
 
-{{--        @foreach ($users as $user)--}}
+        @foreach ($users as $user)
             <tr>
                 <td>
                     <div class="d-flex align-items-center">
                         <div class="ms-3">
-                            <p class="fw-bold">$user->name</p>
+                            <p class="fw-bold">{{ $user->name }}</p>
                         </div>
                     </div>
                 </td>
                 <td>
-                    <p class="fw-normal">user->email</p>
+                    <p class="fw-normal">{{ $user->email }}</p>
                 </td>
                 <form action="" method="POST">
                     @csrf
 
-                    <input type="hidden" name="id" value="">
+                    <input type="hidden" name="id" value="{{ $user->id }}">
                     <td>
                         <select id="role" name="role" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                            <option value="user">User</option>
-                            <option value="organizer">Autheur</option>
-                            <option value="admin">Admin</option>
+                            <option value=""">User</option>
+                            <option value="">Organizer</option>
+                            <option value="">Admin</option>
                         </select>
                     </td>
 
@@ -55,11 +55,11 @@
                     </td>
                 </form>
             </tr>
-{{--        @endforeach--}}
+        @endforeach
         </tbody>
     </table>
     <div class="mt-3">
-{{--        {{ $users->links() }}--}}
+        {{ $users->links() }}
     </div>
 @endsection
 
