@@ -45,7 +45,7 @@
                     <td>
                         <select id="role" name="role" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             <option value="user">User</option>
-                            <option value="organizer">Organizer</option>
+                            <option value="organizer">Autheur</option>
                             <option value="admin">Admin</option>
                         </select>
                     </td>
