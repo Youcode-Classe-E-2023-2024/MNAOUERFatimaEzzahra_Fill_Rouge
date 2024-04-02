@@ -63,9 +63,13 @@
 
         <!-- Nav Item -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('profile') }}">
+            <a class="nav-link" href="{{ route('user') }}">
                 <i class="fa-solid fa-user-group"></i>
                 <span>Users</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('show.subscriber') }}"><i class="fa-regular fa-newspaper"></i><span>Subscriber</span></a>
         </li>
 
         <li class="nav-item">
