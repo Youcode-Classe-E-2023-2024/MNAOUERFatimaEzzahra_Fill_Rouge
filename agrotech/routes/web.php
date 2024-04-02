@@ -49,9 +49,17 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 Route::get('/profile', [ProfilController::class, 'index'])->name('profile');
 
+/* ----Manager category---- */
 Route::get('/category', [CategoryController::class, 'index'])->name('category');
+Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
+Route::post('/category/update', [CategoryController::class, 'update'])->name('category.update');
+Route::post('/category/destroy', [CategoryController::class, 'destroy'])->name('category.destroy');
 
-Route::get('/tag', [TagController::class, 'index'])->name('Tag');
+/* ----Manager tag---- */
+Route::get('/tag', [TagController::class, 'index'])->name('tag');
+Route::post('/tag/store', [TagController::class, 'store'])->name('tag.store');
+Route::post('/tag/update', [TagController::class, 'update'])->name('tag.update');
+Route::post('/tag/destroy', [TagController::class, 'destroy'])->name('tag.destroy');
 
 Route::get('/Article', [ArticleController::class, 'index'])->name('admin.article');
 
