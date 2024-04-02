@@ -68,48 +68,53 @@
 
     <!-- categories -->
     <div class="col-lg-12">
-        <ul class="nav nav-pills d-inline-flex text-center mb-2">
-            <li class="nav-item">
-                <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
-                    <span class="text-dark" style="width: 130px;">All Article</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
-                    <span class="text-dark" style="width: 130px;">Cultive</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">
-                    <span class="text-dark" style="width: 130px;">Météo</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-4">
-                    <span class="text-dark" style="width: 130px;">Maladie</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">
-                    <span class="text-dark" style="width: 130px;">Fértilisation</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">
-                    <span class="text-dark" style="width: 130px;">Irrigation</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">
-                    <span class="text-dark" style="width: 130px;">Matériel</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">
-                    <span class="text-dark" style="width: 130px;">Arbre</span>
-                </a>
-            </li>
-        </ul>
+        <nav class="nav d-flex justify-content-between">
+            @foreach($cats as $cat)
+                <a class="d-flex justify-content-center align-items-center m-2 py-2 bg-light rounded-pill active text-dark" data-bs-toggle="pill" href="#tab-1" style="width: 130px;" href="">{{ $cat->name }}</a>
+            @endforeach
+        </nav>
+{{--        <ul class="nav nav-pills d-inline-flex text-center mb-2">--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">--}}
+{{--                    <span class="text-dark" style="width: 130px;">All Article</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">--}}
+{{--                    <span class="text-dark" style="width: 130px;">Cultive</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">--}}
+{{--                    <span class="text-dark" style="width: 130px;">Météo</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-4">--}}
+{{--                    <span class="text-dark" style="width: 130px;">Maladie</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">--}}
+{{--                    <span class="text-dark" style="width: 130px;">Fértilisation</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">--}}
+{{--                    <span class="text-dark" style="width: 130px;">Irrigation</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">--}}
+{{--                    <span class="text-dark" style="width: 130px;">Matériel</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">--}}
+{{--                    <span class="text-dark" style="width: 130px;">Arbre</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--        </ul>--}}
     </div>
     <!-- end categories -->
 
