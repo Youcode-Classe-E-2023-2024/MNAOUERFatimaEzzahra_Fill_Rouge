@@ -23,7 +23,7 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 User
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">count user</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$usersCount</div>
                         </div>
                         <div class="col-auto">
                             <i class="fa-solid fa-user-group"></i>
@@ -40,9 +40,9 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Categories
+                                Subscriber
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">count cat</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$subscibersCount</div>
                         </div>
                         <div class="col-auto">
                             <i class="fa-regular fa-rectangle-list"></i>
@@ -58,11 +58,11 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Event Accepted
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Article
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">statut accepted</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$articleCount</div>
                                 </div>
                                 <div class="col">
                                     <div class="progress progress-sm mr-2">
@@ -88,9 +88,9 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Event Rejected
+                                Article Favoris
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">StatusRejected</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$favorisCount</div>
                         </div>
                         <div class="col-auto">
                             <i class="fa-solid fa-xmark"></i>
@@ -114,25 +114,25 @@
                 </div>
                 <div class="card-body">
                     <h4 class="small font-weight-bold">User <span
-                            class="float-right">usersCount</span></h4>
+                            class="float-right">$usersCount</span></h4>
                     <div class="progress mb-4">
                         <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
                              aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <h4 class="small font-weight-bold">Categories <span
-                            class="float-right">categoriesCount</span></h4>
+                    <h4 class="small font-weight-bold">Subscriber <span
+                            class="float-right">$SubscriberCount</span></h4>
                     <div class="progress mb-4">
                         <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
                              aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <h4 class="small font-weight-bold">Event Accepted <span
-                            class="float-right">StatusAccepted</span></h4>
+                    <h4 class="small font-weight-bold">Article <span
+                            class="float-right">$Article</span></h4>
                     <div class="progress mb-4">
                         <div class="progress-bar" role="progressbar" style="width: 60%"
                              aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <h4 class="small font-weight-bold">Event Rejected <span
-                            class="float-right">StatusRejected</span></h4>
+                    <h4 class="small font-weight-bold">Article Favoris <span
+                            class="float-right">$Article Favoris</span></h4>
                     <div class="progress mb-4">
                         <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
                              aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
