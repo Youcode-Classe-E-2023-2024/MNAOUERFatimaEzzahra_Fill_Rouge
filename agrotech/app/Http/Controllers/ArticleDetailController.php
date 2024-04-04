@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ArticleDetailController extends Controller
 {
     public function create()
     {
-        return view('articleDetail');
+        $cats = Category::all();
+        return view('articleDetail', ['cats' => $cats]);
     }
 
     public function index()
     {
-        return view('favorite');
+        $cats = Category::all();
+        return view('favorite', ['cats' => $cats]);
     }
 }
