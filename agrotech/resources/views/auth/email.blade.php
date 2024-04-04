@@ -37,7 +37,7 @@
 
             <button name="login" class="w-100 btn btn-lg btn-secondary" type="submit">Send</button>
             <a href="{{ route('home') }}" class="w-100 btn btn-lg btn-outline-dark mt-2" type="button">Back</a>
-            <p class="mt-5 mb-3 text-muted">&copy; EVENTO - 2024</p>
+            <p class="mt-5 mb-3 text-muted">&copy; AgroTech - 2024</p>
         </form>
     </main>
 @endsection
