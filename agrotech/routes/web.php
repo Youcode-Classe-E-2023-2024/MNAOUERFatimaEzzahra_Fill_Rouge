@@ -2,13 +2,13 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleDetailController;
+use App\Http\Controllers\articlesController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
@@ -50,8 +50,17 @@ Route::post('/forgot-password/reset', [ForgotPasswordController::class, 'update'
 
 
 /* ----Manager Article---- */
+Route::get('/articles', [ArticleController::class, 'indexUser'])->name('article');
+
 Route::get('/Article', [ArticleController::class, 'index'])->name('admin.article');
 Route::get('/createArticle', [ArticleController::class, 'create'])->name('create.article');
+Route::post ('/Article/store', [ArticleController::class, 'store'])->name('article.store');
+Route::get('/Article/edit/{article}', [ArticleController::class, 'edit'])->name('article.edit');
+Route::post('/Article/update', [ArticleController::class, 'update'])->name('article.update');
+Route::post('/Article/destroy', [ArticleController::class, 'destroy'])->name('article.destroy');
+
+
+
 Route::get('/articleDetail', [ArticleDetailController::class, 'create'])->name('Detail.article');
 Route::get('/favorite', [ArticleDetailController::class, 'index'])->name('favorite.article');
 
