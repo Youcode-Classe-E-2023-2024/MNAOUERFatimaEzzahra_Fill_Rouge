@@ -17,5 +17,9 @@ class ArticleController extends Controller
     public function index()
     {
         return view('Backoffice.article');
+    public function indexUser()
+    {
+        $articles = Article::paginate(12);
+        return view('articles', ['articles' => $articles]);
     }
 }

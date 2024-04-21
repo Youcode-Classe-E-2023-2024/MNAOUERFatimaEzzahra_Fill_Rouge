@@ -71,7 +71,7 @@
     <!-- categories -->
     <div class="col-lg-12">
         <nav class="nav d-flex justify-content-between">
-            @foreach($cats as $cat)
+            @foreach(\App\Models\Category::all() as $cat)
                 <a class="d-flex justify-content-center align-items-center m-2 py-2 bg-light rounded-pill active text-dark"
                    data-bs-toggle="pill" href="#tab-1" style="width: 130px;" href="">{{ $cat->name }}</a>
             @endforeach
