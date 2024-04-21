@@ -23,7 +23,7 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 User
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$usersCount</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$usersCount}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fa-solid fa-user-group"></i>
@@ -42,7 +42,7 @@
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Subscriber
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$subscibersCount</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$SubscriberCount}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fa-regular fa-rectangle-list"></i>
@@ -62,7 +62,7 @@
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$articleCount</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$ArticleCount}}</div>
                                 </div>
                                 <div class="col">
                                     <div class="progress progress-sm mr-2">
@@ -114,25 +114,25 @@
                 </div>
                 <div class="card-body">
                     <h4 class="small font-weight-bold">User <span
-                            class="float-right">$usersCount</span></h4>
+                            class="float-right">{{$usersCount}}</span></h4>
                     <div class="progress mb-4">
                         <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
                              aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <h4 class="small font-weight-bold">Subscriber <span
-                            class="float-right">$SubscriberCount</span></h4>
+                            class="float-right">{{$SubscriberCount}}</span></h4>
                     <div class="progress mb-4">
                         <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
                              aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <h4 class="small font-weight-bold">Article <span
-                            class="float-right">$Article</span></h4>
+                            class="float-right">{{$ArticleCount}}</span></h4>
                     <div class="progress mb-4">
                         <div class="progress-bar" role="progressbar" style="width: 60%"
                              aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <h4 class="small font-weight-bold">Article Favoris <span
-                            class="float-right">$Article Favoris</span></h4>
+                            class="float-right">$ArticleFavorisCount</span></h4>
                     <div class="progress mb-4">
                         <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
                              aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
