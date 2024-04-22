@@ -68,7 +68,8 @@
             <button name="login" class="w-100 btn btn-lg " style="background-color: #81c408 ;" type="submit">Sign in</button>
             <a href="{{ route('register') }}" class="w-100 btn btn-lg" style="background-color: #ffb524;" type="button">Sign up</a>
             <a href="{{ route('home') }}" class="w-100 btn btn-lg btn-primary mt-2" type="button">Back</a>
+            <p class="mt-5 mb-3 text-muted">&copy; AGROTECH - 2024</p>
         </form>
-        <p class="mt-5 mb-3 text-muted">&copy; AGROTECH - 2024</p>
+        </div>
     </main>
 @endsection
