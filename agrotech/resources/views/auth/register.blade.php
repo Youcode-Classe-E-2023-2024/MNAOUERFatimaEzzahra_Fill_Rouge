@@ -44,9 +44,9 @@
                 <label for="floatingPassword">Confirm Password</label>
             </div>
 
-            <button name="login" class="w-100 btn btn-lg btn-warning" type="submit">Sign in</button>
-            <a href="{{ route('register') }}" class="w-100 btn btn-lg btn-success mt-2" type="button">Sign up</a>
-            <a href="{{ route('home') }}" class="w-100 btn btn-lg btn-secondary mt-2" type="button">Back</a>
+            <button name="login" class="w-100 btn btn-lg " style="background-color: #81c408 ;" type="submit">Sign in</button>
+            <a href="{{ route('register') }}" class="w-100 btn btn-lg" style="background-color: #ffb524;" type="button">Sign up</a>
+            <a href="{{ route('home') }}" class="w-100 btn btn-lg btn-primary mt-2" type="button">Back</a>
 
         </form>
 
