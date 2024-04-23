@@ -93,3 +93,8 @@ Route::get('/dashboard', [subscriberController::class,'showSubscriberStatistics'
 
 /* ---Dashboard---*/
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+
+/* ---Profil---*/
+Route::get('/profile/show/{article}', [ProfileController::class, 'show'])->name('profile.show');
+
