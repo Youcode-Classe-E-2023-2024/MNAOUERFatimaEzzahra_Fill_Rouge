@@ -79,7 +79,7 @@
                                                     eiusmod te
                                                     incididunt</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <a href="{{route('Detail.article')}}"
+                                                    <a href="{{route('Detail.article', ["id" => 12])}}"
                                                        class="btn border border-secondary rounded-pill px-3 text-primary">
                                                         Voir Plus</a>
                                                 </div>
@@ -498,7 +498,7 @@
                         <h4>Parsely</h4>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
                         <div class="d-flex justify-content-between flex-lg-wrap">
-                            <a href="{{route('Detail.article')}}"
+                            <a href="{{route('Detail.article', 1)}}"
                                class="btn border border-secondary rounded-pill px-3 text-primary">
                                 Voir Plus</a>
                         </div>
