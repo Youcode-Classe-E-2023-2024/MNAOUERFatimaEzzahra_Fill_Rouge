@@ -1,19 +1,16 @@
 @extends('layout.admin')
 
-@push('css')
-@endpush
-
 @section('content')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Article</h1>
     </div>
 
-{{--    @if(session('status'))--}}
+    @if(session('status'))
         <div class="alert alert-success">
-{{--            {{ session('status') }}--}}
+            {{ session('status') }}
         </div>
-{{--    @endif--}}
+    @endif
 
     <table class="table align-middle mb-0 bg-white">
         <thead class="bg-light">
@@ -26,17 +23,17 @@
         </thead>
         <tbody>
 
-{{--        @foreach ($events as $event)--}}
+        @foreach ($articles as $article)
             <tr>
                 <td>
                     <div class="d-flex align-items-center">
                         <div class="ms-3">
-                            <p class="fw-bold">Article->title</p>
+                            <p class="fw-bold">{{ $article->title }}</p>
                         </div>
                     </div>
                 </td>
                 <td>
-                    <p class="fw-normal">kjnljknjn</p>
+                    <p class="fw-normal">{{ \Illuminate\Support\Str::limit($article->description, 150, $end='...') }}</p>
                 </td>
                 <form action="" method="POST">
                     @csrf
@@ -52,16 +49,16 @@
 
                     <td>
                         <button type="submit" class="btn btn-link btn-sm btn-rounded">Save</button>
-                        <a class="btn btn-link btn-sm text-secondary" href="">Details</a>
+{{--                        <a class="btn btn-link btn-sm text-secondary" href="">Details</a>--}}
                     </td>
                 </form>
             </tr>
-{{--        @endforeach--}}
+        @endforeach
         </tbody>
 
     </table>
     <div class="mt-3">
-{{--        {{ $events->links() }}--}}
+        {{ $articles->links() }}
     </div>
 @endsection
 
