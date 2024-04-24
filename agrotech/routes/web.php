@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
@@ -61,8 +62,8 @@ Route::post('/Article/destroy', [ArticleController::class, 'destroy'])->name('ar
 
 
 
-Route::get('/articleDetail', [ArticleDetailController::class, 'create'])->name('Detail.article');
-Route::get('/favorite', [ArticleDetailController::class, 'index'])->name('favorite.article');
+Route::get('/articleDetail/{id}', [ArticleController::class, 'show'])->name('Detail.article');
+Route::get('/favorite', [ArticleController::class, 'favoris'])->name('favorite.article');
 
 
 /* ----Manager User---- */
