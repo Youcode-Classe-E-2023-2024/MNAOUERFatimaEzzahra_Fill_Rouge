@@ -41,7 +41,7 @@ class ProfileController extends Controller
     public function show(string $id)
     {
         $cats = Category::all();
-        $articles = Article::all();
+        $articles = Article::paginate(3);
         return view('profile.showprofil', ['cats' => $cats, 'articles'=>$articles]);
     }
 
