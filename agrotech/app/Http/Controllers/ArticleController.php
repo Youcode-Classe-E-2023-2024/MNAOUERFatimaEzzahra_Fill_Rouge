@@ -6,6 +6,7 @@ use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -51,11 +52,32 @@ class ArticleController extends Controller
         return view('Backoffice.article', ['articles' => $articles]);
     }
 
+    public function addComment(Request $request)
+    {
+        $id = $request->get('id');
+        $content = $request->get('content');
+        $comment = Comment::create([
+            'content' => $content,
+            'article_id' => $id,
+            'created_by' => Auth::id()
+        ]);
+        return   redirect(route('Detail.article', $id));
+    }
+
+    public function deleteComment($id)
+    {
+        $comment = Comment::findOrFail($id);
+        $articleId = $comment->article_id;
+//        dd($articleId);
+        $comment -> delete();
+        return   redirect(route('Detail.article', $articleId));
+    }
+
     public function show(string $id)
     {
-        $articles = Article::with(['user', 'category'])->find($id);
+        $article = Article::with(['user', 'category', 'comments'])->find($id);
 
-        return view('articleDetail', ['article' => $articles]);
+        return view('articleDetail', ['article' => $article]);
     }
 
     public function favoris()

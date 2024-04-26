@@ -60,6 +60,8 @@ Route::get('/Article/edit/{article}', [ArticleController::class, 'edit'])->name(
 Route::post('/Article/update', [ArticleController::class, 'update'])->name('article.update');
 Route::post('/Article/destroy', [ArticleController::class, 'destroy'])->name('article.destroy');
 
+Route::post('/addComment', [ArticleController::class, 'addComment'])->name('add.comment');
+Route::delete('/deleteComment/{id}', [ArticleController::class, 'deleteComment'])->name('delete.comment');
 
 
 Route::get('/articleDetail/{id}', [ArticleController::class, 'show'])->name('Detail.article');

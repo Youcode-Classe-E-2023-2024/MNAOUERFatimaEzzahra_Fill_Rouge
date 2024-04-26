@@ -18,8 +18,8 @@ return new class extends Migration
             $table->text('picture');
             $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
             $table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('comment_id');
             $table->unsignedBigInteger('categories_id');
-            $table->unsignedBigInteger('tags_id');
             $table->timestamps();
 
             $table->foreign('categories_id')->references('id')->on('categories')->cascadeOnDelete();

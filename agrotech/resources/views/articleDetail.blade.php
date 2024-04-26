@@ -1,5 +1,71 @@
 @extends('layout.app')
 
+@push('css')
+    <style>
+        .detailBox {
+            margin-top: 20px;
+            border:1px solid #bbb;
+        }
+        .titleBox {
+            background-color:#fdfdfd;
+            padding:10px;
+        }
+        .titleBox label{
+            color:#444;
+            margin:0;
+            display:inline-block;
+        }
+
+        .commentBox .form-group:first-child, .actionBox .form-group:first-child {
+            width:80%;
+        }
+        .commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+            width:18%;
+        }
+        .actionBox .form-group * {
+            width:100%;
+        }
+        .taskDescription {
+            margin-top:10px 0;
+        }
+        .commentList {
+            padding:0;
+            list-style:none;
+            max-height:200px;
+            overflow:auto;
+        }
+        .commentList li {
+            margin:0;
+            margin-top:10px;
+        }
+        .commentList li > div {
+            display:table-cell;
+        }
+        .commenterImage {
+            width:30px;
+            margin-right:5px;
+            height:100%;
+            float:left;
+        }
+        .commenterImage img {
+            width:100%;
+            border-radius:50%;
+        }
+        .commentText p {
+            margin:0;
+        }
+        .sub-text {
+            color:#aaa;
+            font-family:verdana;
+            font-size:11px;
+        }
+        .actionBox {
+            border-top:1px dotted #bbb;
+            padding:10px;
+        }
+    </style>
+@endpush
+
 @section('content')
 
 <!-- Single Page Header start -->
@@ -29,80 +95,53 @@
 {{--                        <p class="mb-4">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>--}}
                         <p class="mb-4">{!! nl2br($article->description) !!}</p>
                     </div>
-                    <div class="col-lg-12">
-                        <div class="tab-content mb-5">
-                            <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
-                                <div class="d-flex">
-                                    <img src="{{asset('img/avatar.jpg')}}" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
-                                    <div class="">
-                                        <p class="mb-2" style="font-size: 14px;">April 12, 2024</p>
-                                        <div class="d-flex justify-content-between">
-                                            <h5>Jason Smith</h5>
-                                            <div class="d-flex mb-3">
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                        <p>The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic
-                                            words etc. Susp endisse ultricies nisi vel quam suscipit </p>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <img src="{{asset('img/avatar.jpg')}}" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
-                                    <div class="">
-                                        <p class="mb-2" style="font-size: 14px;">April 12, 2024</p>
-                                        <div class="d-flex justify-content-between">
-                                            <h5>Sam Peters</h5>
-                                            <div class="d-flex mb-3">
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                        <p class="text-dark">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic
-                                            words etc. Susp endisse ultricies nisi vel quam suscipit </p>
-                                    </div>
-                                </div>
+
+
+                    <div class="row">
+                        <div class="detailBox">
+                            <div class="titleBox">
+                                <label>Comments</label>
                             </div>
-                            <div class="tab-pane" id="nav-vision" role="tabpanel">
-                                <p class="text-dark">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                                    amet diam et eos labore. 3</p>
-                                <p class="mb-0">Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore.
-                                    Clita erat ipsum et lorem et sit</p>
+
+                            <div class="actionBox">
+                                <ul class="commentList">
+                                    @foreach($article->comments as $comment)
+                                        <li>
+                                            <div class="commenterImage">
+                                                <img src="{{asset('img/avatar_comment.jpg')}}" />
+                                            </div>
+                                            <div class="commentText">
+                                                <p class="">{{ $comment->content }}</p> <span class="date sub-text">on March 5th, 2014</span>
+                                            </div>
+                                        </li>
+                                    <form class="form-inline" role="form" action="{{ route('delete.comment', ['id' => $comment->id]) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button name="delete" type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                    </form>
+                                    @endforeach
+                                </ul>
+                                <form class="form-inline" role="form" action="{{ route('add.comment') }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $article->id }}">
+
+                                    <div class="form-group">
+                                        <input name="content" class="form-control" type="text" placeholder="Your comments" />
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-default">Add</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <form action="#">
-                        <div class="row g-4">
-                            <div class="col-lg-6">
-                                <a href="{{route('favorite.article')}}" type="submit" class="btn btn-info">Like</a>
-                                <a type="button" class="btn btn-danger">Dislike</a>
-                            </div>
-                            <h5 class="mb-5 fw-bold">Laisser un Commentaire</h5>
-                            <div class="col-lg-12">
-                                <div class="border-bottom rounded my-4">
-                                    <textarea name="" id="" class="form-control border-0" cols="30" rows="8" placeholder="Commentaire *" spellcheck="false"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="d-flex justify-content-between py-3 mb-5">
-                                    <a href="#" class="btn border border-secondary text-primary rounded-pill px-4 py-3"> Post Comment</a>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
             <div class="col-lg-4 col-xl-3">
                     <div class="col-lg-12">
                         <div class="position-relative">
                             <div class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
-                                <div class="pb-3">
+                                <div class="pb-3 mt-5">
 {{--                                    @auth--}}
 {{--                                        @if(auth()->user()->id == $article->created_by)--}}
                                             <a class="btn btn-sm btn-primary" href="{{ route('article.edit', $article->id) }}">Edit</a>
@@ -116,7 +155,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
 
     <dialog id="deleteModal">

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Article extends Model
 {
@@ -22,8 +23,7 @@ class Article extends Model
         'date',
         'created_by',
         'picture',
-        'categories_id',
-        'tags_id'
+        'categories_id'
     ];
 
     /**
@@ -34,12 +34,15 @@ class Article extends Model
         return $this->belongsTo(User::class, 'created_by');
     }
 
-
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'categories_id');
     }
 
+    public function comments(): hasMany
+    {
+        return $this->hasMany(Comment::class, 'article_id');
+    }
 
     public function tags(): BelongsToMany
     {
