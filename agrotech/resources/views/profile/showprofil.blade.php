@@ -57,8 +57,8 @@
                                              alt="">
                                     </div>
                                     <h3 class="mb-0">{{ $article->title }}</h3>
-                                    <div class="mb-1 text-muted">{{ date('M d', strtotime($article->created_at)) }}</div>
-                                    <p class="card-text mb-auto text-muted">{{ ucfirst($article->description) }}</p>
+                                    <div class="mb-1 text-muted">{{ date('d M y', strtotime($article->created_at)) }}</div>
+                                    <p class="card-text mb-auto text-muted"style="max-height: 3.2em; overflow: hidden;">{{ ucfirst($article->description) }}</p>
                                     <a href="{{ route('Detail.article', $article->id) }}" class="stretched-link">Continue reading</a>
                                 </div>
                             </div>
