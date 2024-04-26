@@ -94,6 +94,8 @@
                         {{--                        <p class="mb-3">Category: Vegetables</p>--}}
 {{--                        <p class="mb-4">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>--}}
                         <p class="mb-4">{!! nl2br($article->description) !!}</p>
+                        <i class="fa-regular fa-thumbs-up"></i>
+                        <i class="fa-regular fa-thumbs-down"></i>
                     </div>
 
 
