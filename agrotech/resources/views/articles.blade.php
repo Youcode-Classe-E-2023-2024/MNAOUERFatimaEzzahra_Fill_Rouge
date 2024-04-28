@@ -3,12 +3,12 @@
 @section('content')
 
     <!-- Fruits Shop Start-->
-    <div class="container-fluid fruite py-5">
-        <div class="container py-5">
+    <div class="container-fluid fruite py-5 mt-5">
+        <div class="container py-5 mt-5">
             <div class="tab-class text-center">
                 <div class="row g-4">
-                    <div class="col-lg-4 text-start">
-                        <h1>Article Tendance</h1>
+                    <div class="col-lg-12 text-center">
+                        <h1 class="display-2">tous les Articles</h1>
                     </div>
                 </div>
                 <div class="tab-content py-1">

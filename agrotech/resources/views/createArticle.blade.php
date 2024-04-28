@@ -8,13 +8,10 @@
 
 @section('content')
 
-<main class="container pt-4">
-    <h1 class="display-2">********</h1>
-    <h1 class="display-2">*****</h1>
-
-    <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h2 class="text-dark text-center">Article Creation</h2>
+<div class="container-fluid py-5 mt-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+            <h1 class="display-2">Creation Articles</h1>
 
                 @if($errors->count())
                     <div class="col-md-12">
