@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Models\Article;
+use App\Models\Articlefavoris;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Tag;
@@ -80,9 +81,24 @@ class ArticleController extends Controller
         return view('articleDetail', ['article' => $article]);
     }
 
-    public function favoris()
+    public function favorite()
     {
+        $articlefavoris = Articlefavoris::paginate(6);
 
+//        dd(Articlefavoris::isFavoris(1, 3));
+
+        return view('favorite',['articlefavoris' => $articlefavoris]);
+    }
+
+    public function articlefavoris(Request $request)
+    {
+        $id = $request->input('articleId');
+//        dd($id);
+        $articlefavoris = Articlefavoris::create([
+            'created_by' => Auth::id(),
+            'article_id' => $id
+        ]);
+        return   redirect()->back()->with('success');
     }
 
     /**

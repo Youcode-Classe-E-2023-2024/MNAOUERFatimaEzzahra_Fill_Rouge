@@ -65,7 +65,8 @@ Route::delete('/deleteComment/{id}', [ArticleController::class, 'deleteComment']
 
 
 Route::get('/articleDetail/{id}', [ArticleController::class, 'show'])->name('Detail.article');
-Route::get('/favorite', [ArticleController::class, 'favoris'])->name('favorite.article');
+Route::get('/favorite', [ArticleController::class, 'favorite'])->name('favorite');
+Route::post('/favorite-article', [ArticleController::class, 'articlefavoris'])->name('favorite.article');
 
 
 /* ----Manager User---- */

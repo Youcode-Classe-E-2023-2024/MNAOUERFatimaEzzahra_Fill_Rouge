@@ -94,20 +94,24 @@
                     <div class="col-lg-6">
                         <h5 class="fw-bold mb-3">{{$article->title}}</h5>
                         <p class="fw-bold mb-3">{{ date('d-M-y', strtotime($article->created_at)) }} by <a href="#">{{ $article->user->name }}</a></p>
-                        {{--                        <p class="mb-3">Category: Vegetables</p>--}}
-{{--                        <p class="mb-4">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>--}}
                         <p class="mb-4">{!! nl2br($article->description) !!}</p>
 
                         <form class="form-inline" role="form" action="{{ route('favorite.article') }}" method="post">
                             @csrf
                             <input type="hidden" value="{{ $article->id }}" name="articleId">
-                            <button type="submit" class="btn btn-link">
-                                <i class="fas fa-thumbs-up enlarged-icon" style="color: #3d75d6;"></i>
-                            </button>
+                            @auth
+                                @if(\App\Models\Articlefavoris::isFavoris(auth()->id(), $article->id))
+                                    <i class="fas fa-thumbs-up enlarged-icon" style="color: #3d75d6;"></i>
+                                @else()
+                                    <button type="submit" class="btn btn-link">
+                                        <i class="fas fa-thumbs-up enlarged-icon" style="color: #A9A9A9;"></i>
+                                    </button>
+                                @endif
+                            @endauth
+
                         </form>
 
                     </div>
-
 
                     <div class="row">
                         <div class="detailBox">
