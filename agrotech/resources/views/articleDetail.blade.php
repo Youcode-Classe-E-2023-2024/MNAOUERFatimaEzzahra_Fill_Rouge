@@ -63,6 +63,9 @@
             border-top:1px dotted #bbb;
             padding:10px;
         }
+        .enlarged-icon {
+            font-size: 50px; /* Adjust the size as needed */
+        }
     </style>
 @endpush
 
@@ -94,8 +97,15 @@
                         {{--                        <p class="mb-3">Category: Vegetables</p>--}}
 {{--                        <p class="mb-4">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>--}}
                         <p class="mb-4">{!! nl2br($article->description) !!}</p>
-                        <i class="fa-regular fa-thumbs-up"></i>
-                        <i class="fa-regular fa-thumbs-down"></i>
+
+                        <form class="form-inline" role="form" action="{{ route('favorite.article') }}" method="post">
+                            @csrf
+                            <input type="hidden" value="{{ $article->id }}" name="articleId">
+                            <button type="submit" class="btn btn-link">
+                                <i class="fas fa-thumbs-up enlarged-icon" style="color: #3d75d6;"></i>
+                            </button>
+                        </form>
+
                     </div>
 
 
