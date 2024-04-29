@@ -83,15 +83,26 @@
                     </div>
                     <br>
 
-                    {{--<div class="text-start">
-                        <label for="picture">Cover</label>
-                        <input type="file" accept="image/*" name="picture" class="form-control is-invalid" id="picture" />
-
+                    <div class="text-start">
+                        <label for="Upload File/Image">Image</label>
+                        <input type="file" name="picture" class="form-control @error('picture') is-invalid @enderror" id="picture" placeholder="Ajouter image"
+                               required>
+                        @error('description')
                         <span class="invalid-feedback" role="alert">
-                                <strong>nn</strong>
+                                <strong>{{ $message }}</strong>
                             </span>
+                        @enderror
                     </div>
-                    <br>--}}
+                    <br>
+{{--                    --}}{{--<div class="text-start">--}}
+{{--                        <label for="picture">Cover</label>--}}
+{{--                        <input type="file" accept="image/*" name="picture" class="form-control is-invalid" id="picture" />--}}
+
+{{--                        <span class="invalid-feedback" role="alert">--}}
+{{--                                <strong>nn</strong>--}}
+{{--                            </span>--}}
+{{--                    </div>--}}
+{{--                    <br>--}}
                     <button type="submit" value="submit" class="btn btn-secondary mb-2">Submit</button>
                 </form>
             </div>

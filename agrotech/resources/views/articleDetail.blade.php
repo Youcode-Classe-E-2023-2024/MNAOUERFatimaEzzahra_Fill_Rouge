@@ -87,7 +87,7 @@
                     <div class="col-lg-6">
                         <div class="border rounded">
                             <a href="#">
-                                <img src="{{asset('img/single-item.jpg')}}" class="img-fluid rounded" alt="Image">
+                                <img src="{{asset($article->picture)}}" class="img-fluid rounded" alt="Image">
                             </a>
                         </div>
                     </div>

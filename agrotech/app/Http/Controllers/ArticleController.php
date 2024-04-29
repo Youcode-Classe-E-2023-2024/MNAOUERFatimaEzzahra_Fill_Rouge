@@ -22,29 +22,6 @@ class ArticleController extends Controller
         return view('createArticle', ['cats' => $cats, 'tags' => $tags]);
     }
 
-    public function store(StoreArticleRequest $request)
-    {
-//        $picture = $request->file('picture');
-////getClientOriginalExtension() génère un nom de fichier aléatoire pour éviter les conflits de noms de fichiers pour que le nom de fichier soit unique
-//        $filename = Str::random(20) . '.' . $picture->getClientOriginalExtension();
-//        $path = $picture->storeAs('images', $filename, 'public');
-////storeAs() pour déplacer le fichier vers le répertoire 'public/storage/images'
-////en utilisant le nom de fichier généré précédemment et "Public" spécifie le lecteur de stockage à utiliser
-
-        $article = Article::create([
-            'title' => $request['title'],
-            'description' => $request['description'],
-            'categories_id' => $request['category'],
-            'created_by' => 1,
-            'picture' => '/storage/' // . $path,
-        ]);
-
-        $article->tags()->sync($request['tags']);
-
-        return to_route('home', $article->id);
-    }
-
-
 //    article backoffice
     public function index()
     {
@@ -101,6 +78,28 @@ class ArticleController extends Controller
         return   redirect()->back()->with('success');
     }
 
+    public function store(StoreArticleRequest $request)
+    {
+//        dd($request['tags']);
+        if ($request->has('picture')){
+            $extension = $request->picture->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $path = 'storage/covers/';
+        }
+
+        $article = Article::create([
+            'title' => $request['title'],
+            'description' => $request['description'],
+            'categories_id' => $request['category'],
+            'created_by' => 1,
+            "picture" =>$request->picture->move($path, $filename),
+        ]);
+
+        $article->tags()->sync($request['tags']);
+
+        return view('articleDetail', ['article' => $article]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -117,12 +116,22 @@ class ArticleController extends Controller
      */
     public function update(UpdateArticleRequest $request)
     {
-        $validated = $request->validated();
 
+        if ($request->has('picture')) {
+            $extension = $request->picture->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $path = 'storage/covers/';
+        }
+
+        $request->validated();
         $id = $request->get('id');
         $article = Article::find($id);
 
-        $article->update($validated);
+        $article->update([
+            "title" => $request->title,
+            "description" => $request->description,
+            "picture" =>$request->picture->move($path, $filename),
+        ]);
         return view('articleDetail', ['article' => $article]);
     }
 
