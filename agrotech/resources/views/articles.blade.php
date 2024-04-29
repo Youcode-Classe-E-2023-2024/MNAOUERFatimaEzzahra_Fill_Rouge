@@ -20,7 +20,6 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
-                                                <img src="{{asset('img/fruite-item-5.jpg')}}" class="img-fluid w-100 rounded-top"
                                                 <img src="{{asset($article->picture)}}" style="width: 296px; height: 198px" class="img-fluid w-100 rounded-top"
                                                      alt="">
                                             </div>
@@ -29,7 +28,9 @@
                                             </div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>{{$article->title}}</h4>
-                                                <p style="max-height: 3.2em; overflow: hidden;">{{$article->description}}</p>
+                                                <div style="max-height: 7em; overflow: hidden;">
+                                                    <p >{!! nl2br($article->description) !!}</p>
+                                                </div>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <a href="{{route('Detail.article', $article->id)}}"
                                                        class="btn border border-secondary rounded-pill px-3 text-primary">
