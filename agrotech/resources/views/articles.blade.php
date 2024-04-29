@@ -21,6 +21,7 @@
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
                                                 <img src="{{asset('img/fruite-item-5.jpg')}}" class="img-fluid w-100 rounded-top"
+                                                <img src="{{asset($article->picture)}}" style="width: 296px; height: 198px" class="img-fluid w-100 rounded-top"
                                                      alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"

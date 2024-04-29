@@ -22,11 +22,12 @@ class UpdateArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|unique:articles,title,' . request()->get('id'),
-            'description' => 'required|string|min:10',
-            'category' => 'required|integer',
-            'tags' => 'required|array',
-            'tags.*' => 'integer',
+//            'title' => 'required|string|unique:articles,title,' . request()->get('id'),
+//            'description' => 'required|string|min:10',
+//            'category' => 'required|integer',
+//            'picture' => 'required|picture|mimes:jpeg,png,jpg|max:2048',
+//            'tags' => 'required|array',
+//            'tags.*' => 'integer',
         ];
     }
 }

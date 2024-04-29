@@ -77,6 +77,17 @@
                         @enderror
                     </div>
                     <br>
+                    <div class="text-start">
+                        <label for="Upload File/Image">Image</label>
+                        <input type="file" name="picture" class="form-control @error('picture') is-invalid @enderror" id="picture" placeholder="Ajouter image"
+                               required>
+                        @error('picture')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <br>
                     <input name="id" type="hidden" value="{{ $article->id }}">
                     <button type="submit" class="btn btn-secondary mb-2">Submit</button>
                 </form>
