@@ -20,8 +20,6 @@
         <tr>
             <th>Username</th>
             <th>Email</th>
-            <th>Role</th>
-            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -38,22 +36,6 @@
                 <td>
                     <p class="fw-normal">{{ $user->email }}</p>
                 </td>
-                <form action="" method="POST">
-                    @csrf
-
-                    <input type="hidden" name="id" value="{{ $user->id }}">
-                    <td>
-                        <select id="role" name="role" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                            <option value=""">User</option>
-                            <option value="">Organizer</option>
-                            <option value="">Admin</option>
-                        </select>
-                    </td>
-
-                    <td>
-                        <button type="submit" class="btn btn-link btn-sm btn-rounded">Assign</button>
-                    </td>
-                </form>
             </tr>
         @endforeach
         </tbody>
