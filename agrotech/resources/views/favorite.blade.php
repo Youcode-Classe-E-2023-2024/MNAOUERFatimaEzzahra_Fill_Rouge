@@ -15,7 +15,7 @@
                 <div class="p-4 rounded bg-light">
                     <div class="row align-items-center">
                         <div class="col-6">
-                            <img src="{{asset('img/best-product-1.jpg')}}" class="img-fluid rounded-circle w-100" alt="">
+                            <img src="{{ asset($articleFavoris->article->picture )}}" class="img-fluid rounded-circle" style="width: 150px;height: 150px" alt="">
                         </div>
                         <div class="col-6">
                             <h4>{{ $articleFavoris->article->title }}</h4>
