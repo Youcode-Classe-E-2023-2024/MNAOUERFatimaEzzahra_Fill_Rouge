@@ -21,6 +21,8 @@
         rel="stylesheet">
     <link href="{{asset('css/pagination.css')}}" rel="stylesheet" type="text/css">
 
+    <link href="{{asset('css/pagination.css')}}" rel="stylesheet" type="text/css">
+
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     @stack('css')
@@ -82,10 +84,6 @@
 
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.article') }}"><i class="fa-regular fa-newspaper"></i><span>Article</span></a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href=""><i class="fa-solid fa-layer-group"></i><span>Template</span></a>
         </li>
 
         <!-- Divider -->
@@ -154,12 +152,12 @@
                                 <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Home
                             </a>
-                            <a class="dropdown-item" href="">
+                            <a class="dropdown-item" href="{{ route('profile.show') }}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
                             </a>
@@ -218,7 +216,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="">Logout</a>
+                <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
             </div>
         </div>
     </div>
