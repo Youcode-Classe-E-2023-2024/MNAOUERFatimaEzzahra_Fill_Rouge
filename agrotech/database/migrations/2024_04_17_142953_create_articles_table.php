@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('comment_id');
             $table->unsignedBigInteger('categories_id');
+            $table->bigInteger('views');
             $table->timestamps();
 
             $table->foreign('categories_id')->references('id')->on('categories')->cascadeOnDelete();
