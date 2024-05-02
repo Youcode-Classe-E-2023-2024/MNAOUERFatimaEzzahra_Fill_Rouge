@@ -13,6 +13,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,13 +26,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
-/* ----Home---- */
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-
+Route::middleware(['guest'])->group(function () {
 /* ----Register---- */
 Route::get('/register', [RegisterController::class, 'create'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
@@ -40,7 +35,8 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 /* ----Login---- */
 Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login.store');
-Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
+
+
 
 
 /* ----Forgot password---- */
@@ -50,10 +46,11 @@ Route::get('/forgot-password/{token}', [ForgotPasswordController::class, 'edit']
 Route::post('/forgot-password/reset', [ForgotPasswordController::class, 'update'])->name('password.update');
 
 
-/* ----Manager Article---- */
-Route::get('/articles', [ArticleController::class, 'indexUser'])->name('article');
+});
 
-Route::get('/Article', [ArticleController::class, 'index'])->name('admin.article');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
+// manage articles
 Route::get('/createArticle', [ArticleController::class, 'create'])->name('create.article');
 Route::post ('/Article/store', [ArticleController::class, 'store'])->name('article.store');
 Route::get('/Article/edit/{article}', [ArticleController::class, 'edit'])->name('article.edit');
@@ -64,13 +61,26 @@ Route::post('/addComment', [ArticleController::class, 'addComment'])->name('add.
 Route::delete('/deleteComment/{id}', [ArticleController::class, 'deleteComment'])->name('delete.comment');
 
 
-Route::get('/articleDetail/{id}', [ArticleController::class, 'show'])->name('Detail.article');
+// add to favorite
 Route::get('/favorite', [ArticleController::class, 'favorite'])->name('favorite');
 Route::post('/favorite-article', [ArticleController::class, 'articlefavoris'])->name('favorite.article');
 
 
+/* ---Profil---*/
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+
+
+
+// admin routes
+Route::middleware(['check.admin'])->group(function () {
+
 /* ----Manager User---- */
 Route::get('/user', [UserController::class, 'index'])->name('user');
+
+
+/* ---Dashboard---*/
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 
 
 /* ----Manager category---- */
@@ -90,15 +100,36 @@ Route::post('/tag/destroy', [TagController::class, 'destroy'])->name('tag.destro
 /* ---Subscriber---*/
 Route::get('/listeSubscriber' ,[SubscriberController::class, 'ListeSub'])->name('show.subscriber');
 Route::post('/unsubscribe' ,[SubscriberController::class, 'unsubscribe'])->name('unsubscribe');
-Route::get('/dashboard', [SubscriberController::class,'showSubscriberStatistics'])->name('showSubscriberStatistics');
+// Route::get('/dashboard', [SubscriberController::class,'showSubscriberStatistics'])->name('showSubscriberStatistics');
+
+
+});
+
+});
+
+/* ----Home---- */
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+// Search article
+Route::post('/searchArticle', [ArticleController::class, 'byTitle'])->name('searchArticle');
+
+// filter articles
+Route::get('/articles/{id}', [ArticleController::class, 'filterArticles'])->name('article.filter');
+
+
+/* ----Manager Article---- */
+Route::get('/articles', [ArticleController::class, 'indexUser'])->name('article');
+
+Route::get('/Article', [ArticleController::class, 'index'])->name('admin.article');
+
+
+
+Route::get('/articleDetail/{id}', [ArticleController::class, 'show'])->name('Detail.article');
+
+
 Route::post('/home' ,[SubscriberController::class, 'addSubscriber'])->name('add_subscriber');
-Route::get('/dashboard', [subscriberController::class,'showSubscriberStatistics'])->name('showSubscriberStatistics');
 
-
-/* ---Dashboard---*/
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-
-/* ---Profil---*/
-Route::get('/profile/show/{article}', [ProfileController::class, 'show'])->name('profile.show');
 
