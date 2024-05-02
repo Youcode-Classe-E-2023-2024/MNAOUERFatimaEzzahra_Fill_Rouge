@@ -23,7 +23,8 @@ class Article extends Model
         'date',
         'created_by',
         'picture',
-        'categories_id'
+        'categories_id',
+        'views'
     ];
 
     /**
