@@ -53,9 +53,13 @@ class ArticleController extends Controller
 
     public function show(string $id)
     {
-        $article = Article::with(['user', 'category', 'comments'])->find($id);
+        $article = Article::with(['user', 'category', 'comments','tags'])->find($id);
 
-        return view('articleDetail', ['article' => $article]);
+        Article::where('id', $id)->increment('views');
+
+        $tags = $article->tags;
+
+        return view('articleDetail', ['article' => $article, 'tags' => $tags]);
     }
 
     public function favorite()
@@ -154,4 +158,41 @@ class ArticleController extends Controller
         return view('articles', compact('articles'));
 
     }
+
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function byCatName(string $keyWords)
+    {
+        $cats = Category::all();
+        $category = Category::where('name', $keyWords)->first();
+
+        $articles = $category->article()->paginate(4);
+
+        return view('category', ['events' => $articles, 'cats' => $cats]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function byTitle(Request $request)
+    {
+        $keyWords = $request->get('search');
+        $articles = Article::where('title', 'LIKE','%'.$keyWords.'%')->paginate(4);
+        $cats = Category::all();
+
+        return view('articles', ['articles' => $articles, 'cats' => $cats]);
+    }
+
+
+    public function filterArticles($id)
+    {
+        $articles = article::where('categories_id', $id)->paginate(4);
+        $cats = Category::all();
+
+        return view('articles', compact('articles', 'cats'));
+    }
+
+
 }
