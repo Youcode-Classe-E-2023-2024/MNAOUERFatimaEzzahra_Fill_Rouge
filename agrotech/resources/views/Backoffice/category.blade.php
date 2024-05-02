@@ -36,7 +36,6 @@
         <thead class="bg-light">
         <tr>
             <th>Name</th>
-            <th>Affiliated</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -54,9 +53,7 @@
                             </div>
                         </div>
                     </td>
-                    <td>
-                        <p class="fw-normal"> cat->events_count </p>
-                    </td>
+
                     <td>
                         <button type="submit" class="btn btn-link btn-sm btn-rounded">Edit</button>
                         <a onclick="deleteModal{{ $cat->id }}.showModal();" class="text-danger">Delete</a>
@@ -77,7 +74,7 @@
         </tbody>
     </table>
 
-    <div class="mt-3">
+    <div class="mt-3 d-flex justify-content-center pagination catpagination" >
         {{ $cats->links() }}
     </div>
 
