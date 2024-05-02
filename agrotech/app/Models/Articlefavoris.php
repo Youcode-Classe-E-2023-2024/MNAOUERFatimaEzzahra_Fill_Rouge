@@ -18,7 +18,7 @@ class Articlefavoris extends Model
      */
     protected $fillable = [
         'created_by',
-        'article_id'
+        'article_id',
     ];
 
     public function article(): belongsTo
