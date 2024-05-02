@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Articlefavoris;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -38,11 +39,16 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
         $cats = Category::all();
-        $articles = Article::paginate(3);
-        return view('profile.showprofil', ['cats' => $cats, 'articles'=>$articles]);
+        $user = Auth::user();
+        $data = [
+            'totalLiked' => Articlefavoris::where('created_by',$user->id)->count(),
+            'totalArticles' => Article::where('created_by',$user->id)->count(),
+        ];
+        $articles = Article::where('created_by',$user->id)->get();
+        return view('profile.showprofil', ['cats' => $cats, 'articles'=>$articles, 'user'=>$user, 'data'=>$data]);
     }
 
     /**
