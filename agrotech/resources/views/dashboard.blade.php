@@ -90,7 +90,7 @@
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                 Article Favoris
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$favorisCount</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$ArticleFavorisCount}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fa-solid fa-xmark"></i>
