@@ -28,7 +28,13 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
-            return to_route('home')->with('success', 'Vous êtes bien connecté ' . $email . ".");
+            $me = auth::user();
+            if($me->role_id == '1')
+            {
+                return to_route('dashboard')->with('success', 'Vous êtes bien connecté ' . $email . ".");
+            }else{
+                return to_route('home')->with('success', 'Vous êtes bien connecté ' . $email . ".");
+            }
         } else {
             return back()->withErrors([
                 'email' => 'Email ou mot de passe incorrect.'
@@ -45,6 +51,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('login');
     }
 }
